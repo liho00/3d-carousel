@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { motion, useAnimationControls } from "framer-motion";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +42,7 @@ export default function Home() {
     //   x: ["0%", "-34%", "-67%"],
     // })
   };
+  const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
     animation();
@@ -56,10 +57,17 @@ export default function Home() {
           delay: 1000,
           disableOnInteraction: true,
         }}
-        loop
-        onSlideChange={(swiper) => {
+        // loop
+        onSlideChange={useCallback((swiper) => {
+          setSlideIndex(swiper.activeIndex);
           console.log(swiper.activeIndex);
-        }}
+          cansControls.start({
+            x: ["0%", "-34%", "-67%"][swiper.activeIndex],
+            transition: {
+              duration: 0.5,
+            },
+          });
+        }, [])}
         // onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
@@ -70,12 +78,23 @@ export default function Home() {
             >
               Pear
             </motion.h1>
-            <motion.img
-              animate={fruitControls}
-              src="/img/Pears.png"
-              alt="pear"
-              className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
-            />
+            {slideIndex === 0 && (
+              <motion.img
+                initial={{
+                  y: "0%",
+                }}
+                animate={{
+                  y: "100%",
+                  transition: {
+                    delay: 0.25,
+                    duration: 0.75,
+                  },
+                }}
+                src="/img/Pears.png"
+                alt="pear"
+                className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
+              />
+            )}
 
             <div className="absolute bottom-16 left-0 right-0">
               <button className="hover:opacity-75 transition text-[#077334] font-semibold font-serif px-6 py-3 bg-white rounded-full">
@@ -92,12 +111,23 @@ export default function Home() {
             >
               Apple
             </motion.h1>
-            <motion.img
-              animate={fruitControls}
-              src="/img/Apples.png"
-              alt="pear"
-              className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
-            />
+            {slideIndex === 1 && (
+              <motion.img
+                initial={{
+                  y: "0%",
+                }}
+                animate={{
+                  y: "-100%",
+                  transition: {
+                    delay: 0.25,
+                    duration: 0.75,
+                  },
+                }}
+                src="/img/Apples.png"
+                alt="pear"
+                className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
+              />
+            )}
 
             <div className="absolute bottom-16 left-0 right-0">
               <button className="hover:opacity-75 transition text-[#077334] font-semibold font-serif px-6 py-3 bg-white rounded-full">
@@ -114,12 +144,23 @@ export default function Home() {
             >
               Exotic
             </motion.h1>
-            <motion.img
-              animate={fruitControls}
-              src="/img/Passion.png"
-              alt="pear"
-              className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
-            />
+            {slideIndex === 2 && (
+              <motion.img
+                initial={{
+                  y: "0%",
+                }}
+                animate={{
+                  y: "100%",
+                  transition: {
+                    delay: 0.25,
+                    duration: 0.75,
+                  },
+                }}
+                src="/img/Passion.png"
+                alt="pear"
+                className="absolute flex-shrink-0 object-cover w-[50rem] md:w-[100rem] lg:w-[150rem]"
+              />
+            )}
 
             <div className="absolute bottom-16 left-0 right-0">
               <button className="hover:opacity-75 transition text-[#077334] font-semibold font-serif px-6 py-3 bg-white rounded-full">
