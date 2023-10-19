@@ -48,7 +48,7 @@ export default function Home() {
     animation();
   }, []);
   return (
-    <main className="flex flex-row w-screen items-center justify-center overflow-hidden">
+    <main className="flex flex-row h-screen w-screen items-center justify-center overflow-hidden">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={0}
@@ -170,25 +170,28 @@ export default function Home() {
           </section>
         </SwiperSlide>
       </Swiper>
-      <div className="z-[50] absolute h-[60vh]">
+      <div className="z-[50] absolute h-[60vh] flex items-center justify-center">
         <div
           className="absolute w-full h-full"
           style={{
-            WebkitMaskImage: "url(/img/12_2.png)",
+            WebkitMaskImage: "url(/img/12_1.png)",
             WebkitMaskRepeat: "no-repeat",
             WebkitMaskPosition: "center",
-            WebkitMaskSize: "cover",
-            maskImage: "url(/img/12_2.png)",
-            maskRepeat: "no-repeat",
-            maskPosition: "center",
-            maskSize: "cover",
+            // WebkitMaskSize: "cover",
+            // maskImage: "url(/img/12_1.png)",
+            // maskRepeat: "no-repeat",
+            // maskPosition: "center center",
+            // maskSize: "cover",
           }}
         >
           <motion.div
-            className="inset-0 w-[100vh] bg-cover h-full bg-center"
+            className="inset-0 w-[100vh] h-full bg-center"
             style={{
               backgroundImage: "url(/img/Labels.png)",
               backgroundRepeat: "no-repeat",
+              backgroundOrigin: "left",
+              // backgroundSize: "50% 100%",
+              backgroundSize: "cover",
             }}
             // animate={{
             //   translateX: ["0%", "-34%", "-67%"],
