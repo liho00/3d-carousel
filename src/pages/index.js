@@ -62,7 +62,7 @@ export default function Home() {
           setSlideIndex(swiper.activeIndex);
           console.log(swiper.activeIndex);
           cansControls.start({
-            x: ["0%", "-34%", "-67%"][swiper.activeIndex],
+            x: ["34%", "0%", "-34%"][swiper.activeIndex],
             transition: {
               duration: 0.5,
             },
@@ -189,13 +189,17 @@ export default function Home() {
             style={{
               backgroundImage: "url(/img/Labels.png)",
               backgroundRepeat: "no-repeat",
-              backgroundOrigin: "left",
+              backgroundOrigin: "center",
               // backgroundSize: "50% 100%",
               backgroundSize: "cover",
             }}
+            // src="/img/Labels.png"
             // animate={{
             //   translateX: ["0%", "-34%", "-67%"],
             // }}
+            initial={{
+              x: "34%",
+            }}
             animate={cansControls}
             transition={{
               duration: 1,
@@ -206,7 +210,7 @@ export default function Home() {
         </div>
         <motion.img
           src="/img/12_2.png"
-          className="w-full h-[60vh] object-contain"
+          className="w-[100vh] h-[60vh] object-contain"
           style={{
             mixBlendMode: "multiply",
           }}
