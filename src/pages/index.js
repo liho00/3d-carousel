@@ -170,27 +170,26 @@ export default function Home() {
           </section>
         </SwiperSlide>
       </Swiper>
-      <div className="z-[50] absolute h-[60vh] flex items-center justify-center">
+      <div className="left-0 right-0 z-[50] absolute w-screen h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute w-full h-full"
+          className="absolute w-[100vh] h-[60vh] bg-contain object-contain"
           style={{
             WebkitMaskImage: "url(/img/12_1.png)",
             WebkitMaskRepeat: "no-repeat",
             WebkitMaskPosition: "center",
-            // WebkitMaskSize: "cover",
-            // maskImage: "url(/img/12_1.png)",
-            // maskRepeat: "no-repeat",
-            // maskPosition: "center center",
-            // maskSize: "cover",
+            WebkitMaskSize: "contain",
+            maskImage: "url(/img/12_1.png)",
+            maskRepeat: "no-repeat",
+            maskPosition: "center",
+            maskSize: "contain",
           }}
         >
           <motion.div
-            className="inset-0 w-[100vh] h-full bg-center"
+            className="absolute inset-0 w-full h-full bg-center"
             style={{
               backgroundImage: "url(/img/Labels.png)",
               backgroundRepeat: "no-repeat",
               backgroundOrigin: "center",
-              // backgroundSize: "50% 100%",
               backgroundSize: "cover",
             }}
             // src="/img/Labels.png"
@@ -210,7 +209,7 @@ export default function Home() {
         </div>
         <motion.img
           src="/img/12_2.png"
-          className="w-[100vh] h-[60vh] object-contain"
+          className="absolute w-screen h-[60vh] object-contain"
           style={{
             mixBlendMode: "multiply",
           }}
